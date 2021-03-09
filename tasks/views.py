@@ -9,26 +9,21 @@ from django.http import HttpResponse
 
 
 def index(request):
-    # 1st version
-    # counts = {t.name: random.randint(1, 100) for t in Tag.objects.all()}
-
-    # 2nd version
-    # counts = {t.name: t.taggit_taggeditem_items.count()
-    # for t in Tag.objects.all()}
-
-    # 3rd version
     from django.db.models import Count
 
     counts = Category.objects.annotate(total_tasks=Count(
         'todoitem')).order_by("-total_tasks")
     counts = {c.name: c.total_tasks for c in counts}
 
-    h_priorities = TodoItem.objects.annotate(prior=Count(1))
+    high_priorities = TodoItem.objects.filter(priority='1').count()
+    medium_priorities = TodoItem.objects.filter(priority='2').count()
+    low_priorities = TodoItem.objects.filter(priority='3').count()
 
     return render(request, "tasks/index.html",
                   {"counts": counts,
-                   "h_priorities": h_priorities,
-
+                   "high_priorities": high_priorities,
+                   "medium_priorities": medium_priorities,
+                   "low_priorities": low_priorities,
                    })
 
 
