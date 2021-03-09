@@ -7,7 +7,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'please-set-secret-key-through-env')
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'https://glacial-island-32092.herokuapp.com/',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
