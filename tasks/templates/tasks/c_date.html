@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Кешируем время{% endblock %}
+
+{% block main_content %}
+<div class="container">
+    <div class="col-md-8">
+        <h1>Дата/время</h1>
+        <h4>{{ dt_cache }}</h4>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Информация по категориям{% endblock %}
+
+{% block main_content %}
+<h1>Категории и числа</h1>
+<ul>
+    {% for cat, count in counts.items %}
+    <li><span class="badge badge-pill badge-info">{{ cat }}: {{ count }}</span></li>
+    {% empty %}
+    <li>Список задач по категориям пуст. Попробуйте добавить их из админки</li>
+    {% endfor %}
+</ul>
+<!-- Вывод списка приоритетов -->
+<ul>
+<li>
+    <span class="badge badge-danger">Высокий приоритет: {{ h_priority }}</span>
+</li>
+<li>
+    <span class="badge badge-primary">Средний приоритет: {{ count }}</span>
+</li>
+<li>
+    <span class="badge badge-secondary">Низкий приоритет: {{ count }}</span>
+</li>
+</ul>
+{% endblock %}
