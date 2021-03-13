@@ -1,6 +1,8 @@
 Ссылка на платформу *heroku* - [тут](https://glacial-island-32092.herokuapp.com/)   
 **login** - pws_admin    
-**password** - sf_password
+**password** - sf_password    
+
+Страница с кэшированием из задания по ссылке "время"
 
 
 ### Установка проекта для локальной провекри     
